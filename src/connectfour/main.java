@@ -19,10 +19,17 @@ public class main {
     static connect4 panel = new connect4();
     static boolean turn = true;
 
+    /*
+        main function
+    */
     public static void main(String[] args) {
         buildGUI();
     }
-
+    
+    /*
+        buildGUI builds the game board. It has 7 button that drop a piece into the 7x6
+        gameboard.
+    */
     public static void buildGUI() {
         JFrame frame = new JFrame();
         JPanel bPanel = new JPanel();
@@ -45,7 +52,9 @@ public class main {
     }
 
     /*
-    
+        ActionListener for when a button is pressed. That button
+        calls dropPiece to change the board. The board is then
+        updated.
     */
     private static class drop implements ActionListener {
 
@@ -66,11 +75,19 @@ public class main {
         }
 
     }
-
+    
+    /*
+        Displays a message that says "You Win"
+    */
     public static void winPopUp() {
         JOptionPane.showMessageDialog(null, "You Win", "Congrats!", JOptionPane.INFORMATION_MESSAGE);
     }
+    
 
+    /*
+        Drops a piece in the chosen column. If it cannot be placed, the turn does 
+        not change and no piece is dropped.
+    */
     public static void dropPiece(int column) {
         int val;
         if (turn == true) {
@@ -89,15 +106,15 @@ public class main {
     }
 
     /*
-    
+        Checks whether a horizontal, vertical, or diagonal win occured
      */
     public static boolean win() {
         return horiWin() || vertWin() || diagWin();
     }
 
     /*
-    
-     */
+        checks if a horizontal win occured
+    */
     public static boolean horiWin() {
         for (int r = 0; r < board.length; r++) {
             for (int c = 0; c < board[0].length; c++) {
@@ -115,8 +132,8 @@ public class main {
     }
 
     /*
-    
-     */
+        Checks if a vertical win occured
+    */
     public static boolean vertWin() {
         for (int c = 0; c < board[0].length; c++) {
             for (int r = 0; r < board.length; r++) {
@@ -134,8 +151,8 @@ public class main {
     }
 
     /*
-    
-     */
+        Checks if a diagonal win occured
+    */
     public static boolean diagWin() {
         for (int r = 0; r < board.length; r++) {
             for (int c = 0; c < board[0].length; c++) {
@@ -155,7 +172,7 @@ public class main {
     }
 
     /*
-    
+        Creates the gui for the connect4 panel and updates it.
      */
     private static class connect4 extends JPanel {
 
@@ -197,7 +214,10 @@ public class main {
                 }
             }
         }
-
+        
+        /*
+            update calls repaint()
+        */
         public void update() {
             repaint();
         }
