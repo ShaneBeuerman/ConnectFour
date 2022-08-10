@@ -139,8 +139,8 @@ public class main {
             for (int r = 0; r < board.length; r++) {
                 if (r + 3 < board.length) {
                     if (board[r][c] == board[r + 1][c]
-                            && board[r + 1][c] == board[r][c]
                             && board[r + 2][c] == board[r][c]
+                            && board[r + 3][c] == board[r][c]
                             && board[r][c] != 0) {
                         return true;
                     }
@@ -165,9 +165,18 @@ public class main {
                         return true;
                     }
                 }
+                if(c+3 < board[0].length
+                        && r - 3 >= 0){
+                    if (board[r][c] == board[r - 1][c+1]
+                            && board[r][c] == board[r-2][c+2]
+                            && board[r][c] == board[r-3][c+3]
+                            && board[r][c] != 0){
+                        return true;
+                    }
+                }
             }
         }
-
+        
         return false;
     }
 
