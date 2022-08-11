@@ -187,9 +187,6 @@ public class main {
 
         @Override
         protected void paintComponent(Graphics g) {
-            Graphics2D draw = (Graphics2D) g;
-            int x = 0;
-            int y = 0;
             //Horizontal Lines
             g.drawLine(0, 0, 700, 0);
             g.drawLine(0, 100, 700, 100);
